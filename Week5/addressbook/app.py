@@ -34,15 +34,19 @@ for contacts in jsonAddressData["results"]:
         )
     myAddressBook.addAddress(newContacts)
 
-@app.route("/raw", methods = ["GET"])
+@app.route("/", methods = ["GET"])
 def rawData():
-    return json.dumps([contacts.__dict__ for contacts in myAddressBook.getAllAddresses()])
+    # return json.dumps([contacts.__dict__ for contacts in myAddressBook.getAllAddresses()])
+    return render_template("index.html", addresses = myAddressBook.getAllAddresses())
 
 
 
-@app.route("/search")
+@app.route("/search", methods = ["GET", "POST"])
 def search():
-    return "Search Requests"
+    if request.method == "POST":
+        searchStr = request.form
+        print(searchStr)
+    return render_template("index.html", addresses = myAddressBook.findAllMatching(searchStr))
 
 if __name__ == "__main__":
     app.run()
