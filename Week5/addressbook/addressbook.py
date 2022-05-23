@@ -36,7 +36,6 @@ class AddressBook():
         self.addresses.append(address)
         
     def getAllAddresses(self):
-        print(self.addresses)
         return self.addresses
     
     def findAllMatching(self, searchStr):
