@@ -44,8 +44,7 @@ def rawData():
 @app.route("/search", methods = ["GET", "POST"])
 def search():
     if request.method == "POST":
-        searchStr = request.form
-        print(searchStr)
+        searchStr = request.form.get('search')
     return render_template("index.html", addresses = myAddressBook.findAllMatching(searchStr))
 
 if __name__ == "__main__":
