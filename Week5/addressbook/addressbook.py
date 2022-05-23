@@ -39,7 +39,7 @@ class AddressBook():
         print(self.addresses)
         return self.addresses
     
-    def findAllMatching(self,searchStr):
+    def findAllMatching(self, searchStr):
         results = []
         for address in self.addresses:
             
