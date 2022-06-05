@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trivia</title>
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>Test your Trivia Knowledge!</h1>
+        <h1 class="category_header">Category: {{ category }}</h1>
+
+        <form name="triviaquest" method="POST" action="{{ url_for('score') }}">
+            {% for question in questions %}
+                <div class="questions">
+                    <li>{{ question.question | safe }}</li>
+                </div>
+                <div class="answers">
+                    {% for answer in question.ans %}
+                        <input type="radio" value="{{ answer | safe }}" name="{{ question.id }}">
+                        <label for ="{{ question.id }}">{{ answer | safe }}</label>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <input class="button" type="submit" value="Score" />
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </body>
+</html>

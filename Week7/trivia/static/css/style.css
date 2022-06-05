@@ -1,0 +1,15 @@
+.questions {
+    padding: 5px;
+    font-size: large;
+}
+
+.answers {
+    padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+.button {
+    padding: 5px;
+    font-size: medium;
+    margin: 5px;
+}
